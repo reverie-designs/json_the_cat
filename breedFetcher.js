@@ -1,7 +1,8 @@
 const request = require('request');
 
 const fetchBreedDescription = function(breedName, callback) {
-  const url = 'https://api.thecatapi.com/v1/breeds/search?q=' + breedName;
+  let breed = breedName.slice(0,3);
+  const url = 'https://api.thecatapi.com/v1/breeds/search?q=' + breed;
   request(url, (error,response, body) =>{
     if (error) {
       return callback(('!!!\nOops, something is wrong with the URL or the API is down. See details below: \n' + error), null);
